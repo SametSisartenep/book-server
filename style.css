@@ -1,0 +1,23 @@
+body
+{
+	background-color: rgb(10, 100, 250);
+	color: white;
+}
+h1
+{
+	color: rgb(80, 200, 255);
+	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8);
+	text-align: center;
+}
+a
+{
+	text-decoration: none;
+	color: #FF0;
+}
+span
+{
+	box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.8);
+	padding: 10px;
+	border-radius: 8px;
+	font-size: 1.5em;
+}

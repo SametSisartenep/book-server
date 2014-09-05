@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Descarga de libros.</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<script type="text/javascript" src="libs/jquery.min.js"></script>
+	</head>
+	<body>
+		<h1>Bienvenido Devense :)</h1>
+		<h2>Libros</h2>
+		<ol id="lista">
+		
+		</ol>
+		<script type="text/javascript">
+		var allText = "",
+			lines = "",
+			lines2 = "";
+
+		var pdfFile1 = new XMLHttpRequest();
+		pdfFile1.open("GET", "pdfs1.txt", true);
+		pdfFile1.onreadystatechange = function()
+		{
+			if (pdfFile1.readyState === 4) {  // document is ready to parse.
+				if (pdfFile1.status === 200) {  // file is found
+		    		allText = pdfFile1.responseText; 
+		    		lines = allText.split("\n");
+		    		for (var i = 0; i < lines.length; i++)
+					{
+						$('#lista').append('<li><a href="./Books/' + lines[i] + '">' + lines[i].replace(".pdf", "") + '</a></li>');
+					}
+		    	}
+			}
+		}
+		pdfFile1.send(null);
+
+		var pdfFile2 = new XMLHttpRequest();
+		pdfFile2.open("GET", "pdfs2.txt", true);
+		pdfFile2.onreadystatechange = function ()
+		{
+			if (pdfFile2.readyState === 4) {
+				if (pdfFile2.status === 200) {
+					allText = pdfFile2.responseText;
+					lines2 = allText.split("\n");
+					for (var i = 0; i < lines2.length; i++)
+					{
+						$('#lista').append('<li><a href="./Books/Purchases/' + lines2[i] + '">' + lines2[i].replace(".pdf", "") + '</a></li>');
+					}
+				}
+			}
+		}
+		pdfFile2.send(null);
+		</script>
+		<span><i>Qué los disfrutes! ;)</i></span>
+	</body>
+</html>
